@@ -40,4 +40,19 @@ class ProcessadorBoletoTest {
 
         Assertions.assertFalse(fatura.isPaga());
     }
+
+    @Test
+    public void PagaQuandoPagamentosIgualValorTotal() {
+
+        LocalDate data = LocalDate.of(2023, 4, 12);
+        BigDecimal valorTotal = BigDecimal.valueOf(1500.00);
+        String nomeCliente = "José Itallo";
+        Fatura fatura = new Fatura(data, valorTotal, nomeCliente);
+        ArrayList<Boleto> boletos = new ArrayList<>();
+        boletos.add(new Boleto("001", data, BigDecimal.valueOf(500.00)));
+        boletos.add(new Boleto("002", data, BigDecimal.valueOf(400.00)));
+        boletos.add(new Boleto("003", data, BigDecimal.valueOf(600.00)));
+        ProcessadorBoletos.processar(boletos,fatura);
+        Assertions.assertEquals(true,fatura.isPaga());
+    }
 }
