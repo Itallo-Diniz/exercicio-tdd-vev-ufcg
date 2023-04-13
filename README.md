@@ -5,7 +5,7 @@
 - José Ítallo Martins Silva Diniz - 119210256
 - Regina Letícia Santos Felipe - 119110519
 
-## Experiencia da Dupla
+## Experiência da Dupla
 
 - O uso de TDD permite que tenhamos mais confiança durante o desenvolvimento.
 - Usar TDD facilitou a manutenção no código porque os testes garantem se o código continua funcionando
