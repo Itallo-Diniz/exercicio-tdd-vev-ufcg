@@ -34,7 +34,7 @@ public class Fatura {
         if(BigDecimal.ZERO.compareTo(this.valorTotal) == 0) return true;
         BigDecimal valorPago = BigDecimal.ZERO;
         for (Pagamento pagamento: this.pagamentos) {
-            valorPago.add(pagamento.getValor());
+            valorPago = valorPago.add(pagamento.getValor());
         }
         if (valorPago.compareTo(this.valorTotal) >= 0) {
             return true;
