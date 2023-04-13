@@ -4,6 +4,7 @@ import org.example.Main;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -18,10 +19,24 @@ class ProcessadorBoletoTest {
     @Test
     public void deveMarcarFaturaComoPagaQuandoFaturaZerada() {
         LocalDate data = LocalDate.of(2023, 4, 12);
-        Double valorTotal = 0.0;
         String nomeCliente = "José Itallo";
-        Fatura fatura = new Fatura(data, valorTotal, nomeCliente);
+        Fatura fatura = new Fatura(data, BigDecimal.ZERO, nomeCliente);
 
         Assertions.assertTrue(fatura.isPaga());
+    }
+
+    @Test
+    public void naoDeveMarcarFaturaComoPaga() {
+        LocalDate data = LocalDate.of(2023, 4, 12);
+        BigDecimal valorTotal = BigDecimal.valueOf(1500.00);
+        String nomeCliente = "José Itallo";
+        Fatura fatura = new Fatura(data, valorTotal, nomeCliente);
+        ArrayList<Boleto> boletos = new ArrayList<>();
+        boletos.add(new Boleto("001", data, BigDecimal.valueOf(500.00)));
+        boletos.add(new Boleto("002", data, BigDecimal.valueOf(400.00)));
+
+        ProcessadorBoletos.processar(boletos, fatura);
+
+        Assertions.assertFalse(fatura.isPaga());
     }
 }

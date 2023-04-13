@@ -1,18 +1,19 @@
 package org.example;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Fatura {
     private LocalDate data;
-    private double valorTotal;
+    private BigDecimal valorTotal;
     private String nomeCliente;
     private boolean paga;
 
-    public Fatura(LocalDate data, double valorTotal, String nomeCliente) {
+    public Fatura(LocalDate data, BigDecimal valorTotal, String nomeCliente) {
         this.data = data;
         this.valorTotal = valorTotal;
         this.nomeCliente = nomeCliente;
-        if(valorTotal == 0) this.setPaga(true);
+        if(BigDecimal.ZERO.compareTo(valorTotal) == 0) this.setPaga(true);
         else this.setPaga(false);
     }
 
@@ -20,7 +21,7 @@ public class Fatura {
         return data;
     }
 
-    public double getValorTotal() {
+    public BigDecimal getValorTotal() {
         return valorTotal;
     }
 
