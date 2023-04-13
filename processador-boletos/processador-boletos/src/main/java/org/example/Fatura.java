@@ -12,7 +12,8 @@ public class Fatura {
         this.data = data;
         this.valorTotal = valorTotal;
         this.nomeCliente = nomeCliente;
-        this.paga = false;
+        if(valorTotal == 0) this.setPaga(true);
+        else this.setPaga(false);
     }
 
     public LocalDate getData() {
@@ -28,10 +29,10 @@ public class Fatura {
     }
 
     public boolean isPaga() {
-        return true;
+        return paga;
     }
 
-    public void setPago(boolean paga) {
+    public void setPaga(boolean paga) {
         this.paga = paga;
     }
 
