@@ -8,6 +8,7 @@ public class Fatura {
     private BigDecimal valorTotal;
     private String nomeCliente;
     private boolean paga;
+    private BigDecimal valorPago;
 
     public Fatura(LocalDate data, BigDecimal valorTotal, String nomeCliente) {
         this.data = data;
@@ -15,6 +16,7 @@ public class Fatura {
         this.nomeCliente = nomeCliente;
         if(BigDecimal.ZERO.compareTo(valorTotal) == 0) this.setPaga(true);
         else this.setPaga(false);
+        this.valorPago = BigDecimal.ZERO;
     }
 
     public LocalDate getData() {
@@ -33,8 +35,18 @@ public class Fatura {
         return paga;
     }
 
-    public void setPaga(boolean paga) {
+    private void setPaga(boolean paga) {
         this.paga = paga;
     }
 
+    public BigDecimal getValorPago() {
+        return valorPago;
+    }
+
+    public void setValorPago(BigDecimal valorPago) {
+        this.valorPago = valorPago;
+        if (this.valorPago.compareTo(this.valorTotal) >= 0) {
+            this.setPaga(true);
+        }
+    }
 }
