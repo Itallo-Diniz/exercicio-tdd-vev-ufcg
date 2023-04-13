@@ -6,7 +6,8 @@ public class ProcessadorBoletos {
 
     public static void processar(ArrayList<Boleto> boletos, Fatura fatura) {
         for (Boleto boleto : boletos) {
-            fatura.setValorPago(fatura.getValorPago().add(boleto.getValorPago()));
+            Pagamento pagamento = new Pagamento(boleto.getValorPago(), boleto.getData(), TipoPagamento.BOLETO);
+            fatura.adicionarPagamento(pagamento);
         }
     }
 }
