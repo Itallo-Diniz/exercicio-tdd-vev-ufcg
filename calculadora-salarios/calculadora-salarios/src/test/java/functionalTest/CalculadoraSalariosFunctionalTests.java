@@ -171,15 +171,15 @@ public class CalculadoraSalariosFunctionalTests {
     @Test
     public void Teste21() {
         // Partição de equivalencia - DESENVOLVEDOR que recebem abaixo de 3 mil
-        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 1500.00, Cargo.GERENTE);
-        double salarioEsperado = 1200.00;
+        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 1500.00, Cargo.DESENVOLVEDOR);
+        double salarioEsperado = 1350.00;
         double salarioCalculado = CalculadoraDeSalario.calculaSalario(desenvolvedor);
         assertEquals(salarioEsperado, salarioCalculado);
     }
     @Test
     public void Teste22() {
         // Partição de equivalencia - DESENVOLVEDOR que recebem acima de 3 mil
-        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 4000.00, Cargo.GERENTE);
+        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 4000.00, Cargo.DESENVOLVEDOR);
         double salarioEsperado = 3200.00;
         double salarioCalculado = CalculadoraDeSalario.calculaSalario(desenvolvedor);
         assertEquals(salarioEsperado, salarioCalculado);
@@ -187,32 +187,32 @@ public class CalculadoraSalariosFunctionalTests {
     @Test
     public void Teste23() {
         // Partição de equivalencia - DBA que recebe abaixo de 2 mil
-        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 1500.00, Cargo.GERENTE);
-        double salarioEsperado = 1200.00;
+        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 1500.00, Cargo.DBA);
+        double salarioEsperado = 1275.00;
         double salarioCalculado = CalculadoraDeSalario.calculaSalario(desenvolvedor);
         assertEquals(salarioEsperado, salarioCalculado);
     }
     @Test
     public void Teste24() {
         // Partição de equivalencia - DBA que recebe acima de 2 mil
-        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 3000.00, Cargo.GERENTE);
-        double salarioEsperado = 2400.00;
+        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 3000.00, Cargo.DBA);
+        double salarioEsperado = 2250.00;
         double salarioCalculado = CalculadoraDeSalario.calculaSalario(desenvolvedor);
         assertEquals(salarioEsperado, salarioCalculado);
     }
     @Test
     public void Teste25() {
         // Partição de equivalencia - TESTADOR que recebe abaixo de 2.000,00
-        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 1500.00, Cargo.GERENTE);
-        double salarioEsperado = 1200.00;
+        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 1500.00, Cargo.TESTADOR);
+        double salarioEsperado = 1275.00;
         double salarioCalculado = CalculadoraDeSalario.calculaSalario(desenvolvedor);
         assertEquals(salarioEsperado, salarioCalculado);
     }
     @Test
     public void Teste26() {
         // Partição de equivalencia - TESTADOR que recebe acima de 2.000,00
-        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 5000.00, Cargo.GERENTE);
-        double salarioEsperado = 3500.00;
+        Funcionario desenvolvedor = new Funcionario("João", "joao@empresa.com", 5000.00, Cargo.TESTADOR);
+        double salarioEsperado = 3750.00;
         double salarioCalculado = CalculadoraDeSalario.calculaSalario(desenvolvedor);
         assertEquals(salarioEsperado, salarioCalculado);
     }
