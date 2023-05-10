@@ -1,6 +1,5 @@
 import org.example.Boleto;
 import org.example.Fatura;
-import org.example.Main;
 import org.example.ProcessadorBoletos;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
